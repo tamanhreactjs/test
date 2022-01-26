@@ -68,8 +68,6 @@ export class FormComponent implements OnInit {
       })
     )
     .subscribe(res => {
-      this.isLoading = false;
-      this.activeModal.close();
       this._toastService.show('Create article success', { classname: 'bg-success text-light', delay: 5000 });
     }, err => {
       this._toastService.show('Create article fail', { classname: 'bg-danger text-light', delay: 5000 });
