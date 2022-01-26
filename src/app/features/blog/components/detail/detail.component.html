@@ -1,0 +1,11 @@
+<app-loading *ngIf="isLoading"></app-loading>
+
+<div *ngIf="article">
+  <div>
+    <h1>{{article.title}}</h1>
+    <small>{{article.createdAt}}</small>
+  </div>
+  <img class="m-2" [src]="article.image" alt="article">
+
+  <p>{{article.content}}</p>
+</div>

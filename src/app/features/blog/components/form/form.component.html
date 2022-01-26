@@ -1,0 +1,20 @@
+<div class="modal-body">
+  <form [formGroup]="formArticle" (submit)="onSubmit()">
+    <div class="mb-3">
+      <label for="title" class="form-label">Title</label>
+      <input type="text" class="form-control" id="title" formControlName="title" />
+    </div>
+    <div class="mb-3">
+      <label for="Content" class="form-label">Content</label>
+      <textarea class="form-control" id="Content" formControlName="content"></textarea>
+    </div>
+    <div class="mb-3">
+      <div class="form-group">
+        <label for="exampleFormControlFile1">Image</label>
+        <input class="mb-3" accept="image/*" type="file" class="form-control-file" (change)="selectFile($event)">
+        <img *ngIf="getImage" [src]="getImage" alt="thumbnail">
+      </div>
+    </div>
+    <button [disabled]="formArticle.invalid" type="submit" class="btn btn-primary">Submit <app-loading *ngIf="isLoading"></app-loading></button>
+  </form>
+</div>

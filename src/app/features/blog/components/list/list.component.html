@@ -1,0 +1,26 @@
+<div class="articles">
+  <div class="articles_filter mb-4">
+    <button type="button" class="btn btn-primary mb-4" (click)="openForm()">
+      Create Article
+    </button>
+    
+    <div class="row">
+      <div class="col-md-4">
+        <app-sort (onSort)="sortArticle($event)"></app-sort>
+      </div>
+      <div class="col-md-4"></div>
+      <div class="col-md-4">
+        <app-search (onSearch)="searchArticle($event)"></app-search>
+      </div>
+    </div>
+  </div>
+
+  <h1 class="mb-4">Articles</h1>
+
+  <ul class="list-unstyled">
+    <app-loading *ngIf="isLoading"></app-loading>
+    <article *ngFor="let article of articles$ | async" [article]="article" (onEdit)="openForm($event)"></article>
+  </ul>  
+</div>
+<ngb-pagination [collectionSize]="70" [(page)]="page" (pageChange)="selectPage($event)"></ngb-pagination>
+<app-toast></app-toast>

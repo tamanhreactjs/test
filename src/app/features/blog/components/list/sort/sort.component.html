@@ -1,0 +1,17 @@
+<div class="sort mb-4">
+  <form [formGroup]="formSort" class="d-flex" (submit)="sortArticle()">
+    <select class="form-control mr-2" formControlName="sortBy">
+      <option [value]="option" *ngFor="let option of sort">
+        {{option}}
+      </option>
+    </select>
+
+    <select class="form-control mr-2" formControlName="orderBy">
+      <option [value]="option" *ngFor="let option of sortType">
+        {{option}}
+      </option>
+    </select>
+
+    <button class="btn btn-primary">Sort</button>
+  </form>
+</div>
